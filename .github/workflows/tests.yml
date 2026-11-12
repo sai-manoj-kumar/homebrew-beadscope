@@ -1,0 +1,31 @@
+name: Test formula
+
+# beadscope installs from the npm tarball and needs no bottles, so this just
+# installs the formula from source, runs its test and audits it.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Use this checkout as the tap
+        run: |
+          brew tap-new --no-git local/beadscope
+          cp Formula/*.rb "$(brew --repository local/beadscope)/Formula/"
+
+      - name: Audit
+        run: brew audit --strict --new local/beadscope/beadscope
+
+      - name: Install
+        run: brew install --build-from-source local/beadscope/beadscope
+
+      - name: Test
+        run: brew test local/beadscope/beadscope
