@@ -20,6 +20,8 @@ jobs:
         run: |
           brew tap-new --no-git local/beadscope
           cp Formula/*.rb "$(brew --repository local/beadscope)/Formula/"
+          # Homebrew 7 refuses to load formulae from a tap it has not been told to trust.
+          brew trust --formula local/beadscope/beadscope
 
       - name: Audit
         run: brew audit --strict --new local/beadscope/beadscope
