@@ -10,3 +10,7 @@ beadscope start
 
 The formula installs the published npm package and its dependencies, plus Node and
 `bd`. Upgrade with `brew upgrade beadscope`.
+
+Homebrew 7 refuses to load formulae from a tap it has not been told to trust. If the
+install stops with "untrusted tap", run `brew trust sai-manoj-kumar/beadscope` and
+install again.
