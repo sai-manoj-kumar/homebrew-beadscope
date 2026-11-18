@@ -1,8 +1,8 @@
 class Beadscope < Formula
   desc "Local web UI for the beads (bd) issue tracker"
   homepage "https://github.com/sai-manoj-kumar/beadscope"
-  url "https://registry.npmjs.org/beadscope/-/beadscope-0.5.1.tgz"
-  sha256 "bd99d934a068f7ddf36e92b1c9b557be0167a5750c6974d5a8a273f010be4d5f"
+  url "https://registry.npmjs.org/beadscope/-/beadscope-0.6.0.tgz"
+  sha256 "49b8873a97559eeb44bb2a416dc729f8dac83c84b3543228859f8e150447a0f7"
   license "MIT"
 
   depends_on "beads"
